@@ -1,38 +1,95 @@
 .App {
   text-align: center;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+/* tiny reset */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* body */
+body {
+  background: #4d244e;
+  font-family: sans-serif;
+  border-top: 5px solid #aa8e8d;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* title */
+h1 {
+  color: #aa8e8d;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* tasks */
+.tasks {
+
+}
+.content-task{
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 50px;
+  background-color: #6d335c;
+  font-size: 1.5rem;
+  color: aliceblue;
+}
+.delete {
+  margin-right: .8em;
+  padding: 10px;
+  font-size: 1.5em;
+  color: aquamarine;
+  cursor: pointer;
+  border: 1px solid #6d335c;
+  transition: color .6s;
+}
+.delete:hover{
+  color:aliceblue;
+}
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* background-color: tan; */
+}
+input[type=text], .btn-submit {
+  padding: 5px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  text-align: center;
+}
+.btn-submit {
+  width: 150px;
+  cursor: pointer;
+  background-color: #aa8e8d;
+  transition: all .8s;
+}
+.btn-submit:hover{
+  background-color: #4d244e;
+  color: aliceblue;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#label-1:checked~label[for=label-1]:before,
+#label-2:checked~label[for=label-2]:before,
+#label-3:checked~label[for=label-3]:before,
+#label-4:checked~label[for=label-4]:before,
+#label-5:checked~label[for=label-5]:before {
+  background: url("https://i.imgur.com/eoPQ05r.png") no-repeat center center;
 }
