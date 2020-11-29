@@ -4,31 +4,22 @@ import Header from './components/Header'
 function App() {
   const [newTask, setNewTask] = useState(['Faire une To Do List']);
   const [task, setTask] = useState('');
-
+  const [filterTask, setFilter] = useState('Search')
 
   return (
     <div className="App">
-
       <Header />
-      {/* deleteMe={() => {
-        const temp = [...todo];
-        temp.splice(todo.indexOf(element), 1);
-        setTodo(temp);
-      }} */}
-
       <div id="todolist">
         <section className="tasks">
-
           {newTask.map((t, i) => {
             return (
               t !== 'Une autre ?' && t !== '' &&
               <div key={i} className="content-task">
                 <span
-                  onClick = {()=>{
+                  onClick={() => {
                     const deltask = [...newTask];
                     deltask.splice(newTask.indexOf(t), 1)
-                    console.log('Hello');
-
+                    setNewTask(deltask);
                   }}
                   className="delete">&nbsp;X&nbsp;</span>
                 <div className='task'>{t}</div>
@@ -43,17 +34,31 @@ function App() {
             const copyNewTask = [...newTask];
             copyNewTask.push(task);
             setNewTask(copyNewTask);
-            setTask('Une autre ?');
+            setTask('');
           }
           }>
-
           <input value={task} type="text" className="more" placeholder="Ajouter une tâche"
             onChange={(e) => {
               setTask(e.target.value)
             }} />
           <input type="submit" className="btn-submit" value="Ajouter une tâche" />
         </form>
+        <form
+        onSubmit = {(e)=>{
+          e.preventDefault();
+        }
 
+        }
+        >
+          <input
+          onChange = {(e)=>{
+            let filterList = e.target.value;
+            setFilter(filterList)
+            console.log(filterList);
+          }
+          }
+          type="text" className="more" placeholder="Recherche" value={filterTask} />
+        </form>
       </div>
     </div>
   );
